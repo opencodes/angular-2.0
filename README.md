@@ -13,9 +13,9 @@ Angular 2 Practice
 - Angular apps are modular and Angular has its own modularity system called Angular modules or NgModules.
 - Every Angular app has at least one module, the root module, conventionally named AppModule.
 - An Angular module, whether a root or feature, is a class with an @NgModule decorator.
-----
+
 Decorators are functions that modify JavaScript classes. Angular has many decorators that attach metadata to classes so that it knows what those classes mean and how they should work. Learn more about decorators on the web.
------
+
 
 NgModule is a decorator function that takes a single metadata object whose properties describe the module. The most important properties are:
 
