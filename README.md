@@ -1,212 +1,169 @@
-# angular-2.0
-Angular 2 Practice
-- Modules
-- Components
-- Templates
-- Metadata
-- Data binding
-- Directives
-- Services
-- Dependency injection
+# Angular QuickStart Source
+[![Build Status][travis-badge]][travis-badge-url]
 
-### Modules
-Angular apps are modular and Angular has its own modularity system called Angular modules or NgModules.
+This repository holds the TypeScript source code of the [angular.io quickstart](https://angular.io/docs/ts/latest/quickstart.html),
+the foundation for most of the documentation samples and potentially a good starting point for your application.
 
-Every Angular app has at least one module, the root module, conventionally named AppModule.
+It's been extended with testing support so you can start writing tests immediately.
 
-An Angular module, whether a root or feature, is a class with an **@NgModule** decorator.
+**This is not the perfect arrangement for your application. It is not designed for production.
+It exists primarily to get you started quickly with learning and prototyping in Angular**
 
-''**Decorators** are functions that modify JavaScript classes. Angular has many decorators that attach metadata to classes so that it knows what those classes mean and how they should work. Learn more about decorators on the web.''
+We are unlikely to accept suggestions about how to grow this QuickStart into something it is not.
+Please keep that in mind before posting issues and PRs.
 
+## Prerequisites
 
-NgModule is a decorator function that takes a single metadata object whose properties describe the module. The most important properties are:
+Node.js and npm are essential to Angular development. 
+    
+<a href="https://docs.npmjs.com/getting-started/installing-node" target="_blank" title="Installing Node.js and updating npm">
+Get it now</a> if it's not already installed on your machine.
+ 
+**Verify that you are running at least node `v4.x.x` and npm `3.x.x`**
+by running `node -v` and `npm -v` in a terminal/console window.
+Older versions produce errors.
 
-- **declarations** - the view classes that belong to this module. Angular has three kinds of view classes: components, directives, and pipes.
-- **exports** - the subset of declarations that should be visible and usable in the component templates of other modules.
-- **imports** - other modules whose exported classes are needed by component templates declared in this module.
-- **providers** - creators of services that this module contributes to the global collection of services; they become accessible in all parts of the app.
-- **bootstrap** - the main application view, called the root component, that hosts all other app views. Only the root module should set this bootstrap property.
+We recommend [nvm](https://github.com/creationix/nvm) for managing multiple versions of node and npm.
 
-```sh
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-@NgModule({
-  imports:      [ BrowserModule ],
-  providers:    [ Logger ],
-  declarations: [ AppComponent ],
-  exports:      [ AppComponent ],
-  bootstrap:    [ AppComponent ]
-})
-export class AppModule { }
-````
-The export of AppModule is just to show how to export; it isn't actually necessary in this example. A root module has no reason to export anything because other components don't need to import the root module. 
+## Create a new project based on the QuickStart
 
-**Bootstrapping**
-
-Launch an application by bootstrapping its root module. During development you're likely to bootstrap the AppModule in a main.ts file like this one.
-```
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app.module';
-
-platformBrowserDynamic().bootstrapModule(AppModule);
-````
-##### Angular libraries
-- Each Angular library name begins with the @angular prefix.
-- You can install them with the npm package manager and import parts of them with JavaScript import statements.
-```
-import { Component } from '@angular/core';
-```
-### Components
-- A component controls a patch of screen called a view.
-- You define a component's application logic—what it does to support the view—inside a class. The class interacts with the view through an API of properties and methods.
-
-```
-export class HeroListComponent implements OnInit {
-  heroes: Hero[];
-  selectedHero: Hero;
-
-  constructor(private service: HeroService) { }
-
-  ngOnInit() {
-    this.heroes = this.service.getHeroes();
-  }
-
-  selectHero(hero: Hero) { this.selectedHero = hero; }
-}
-```
-Angular creates, updates, and destroys components as the user moves through the application. Your app can take action at each moment in this lifecycle through optional lifecycle hooks, like ngOnInit() declared above.
-
-### Templates
-You define a component's view with its companion template. A template is a form of HTML that tells Angular how to render the component.
-````
-<h2>Hero List</h2>
-<p><i>Pick a hero from the list</i></p>
-<ul>
-  <li *ngFor="let hero of heroes" (click)="selectHero(hero)">
-    {{hero.name}}
-  </li>
-</ul>
-<hero-detail *ngIf="selectedHero" [hero]="selectedHero"></hero-detail>
-````
-### Metadata
-Metadata tells Angular how to process a class.
-
-Looking back at the code for HeroListComponent, you can see that it's just a class. There is no evidence of a framework, no "Angular" in it at all.
-
-In fact, HeroListComponent really is just a class. It's not a component until you tell Angular about it.
-
-To tell Angular that HeroListComponent is a component, attach metadata to the class.
-
-In TypeScript, you attach metadata by using a decorator. Here's some metadata for HeroListComponent:
-```
-@Component({
-  moduleId: module.id,
-  selector:    'hero-list',
-  templateUrl: 'hero-list.component.html',
-  providers:  [ HeroService ]
-})
-export class HeroListComponent implements OnInit {
-/* . . . */
-}
-```
-Here are a few of the possible @Component configuration options:
-
-- moduleId: sets the source of the base address (module.id) for module-relative URLs such as the templateUrl.
-
-- selector: CSS selector that tells Angular to create and insert an instance of this component where it finds a <hero-list> tag in parent HTML. For example, if an app's HTML contains <hero-list></hero-list>, then Angular inserts an instance of the HeroListComponent view between those tags.
-
-- templateUrl: module-relative address of this component's HTML template, shown above.
-
-- providers: array of dependency injection providers for services that the component requires. This is one way to tell Angular that the component's constructor requires a HeroService so it can get the list of heroes to display.
-
-### Data binding
-Angular supports data binding, a mechanism for coordinating parts of a template with parts of a component. Add binding markup to the template HTML to tell Angular how to connect both sides.
-
-```
-<li>{{hero.name}}</li>
-<hero-detail [hero]="selectedHero"></hero-detail>
-<li (click)="selectHero(hero)"></li>
-```
-- The {{hero.name}} interpolation displays the component's hero.name property value within the <li> tags.
-
-- The [hero] property binding passes the value of selectedHero from the parent HeroListComponent to the hero property of the child HeroDetailComponent.
-
-- The (click) event binding calls the component's selectHero method when the user clicks a hero's name.
-
-Two-way data binding is an important fourth form that combines property and event binding in a single notation, using the ngModel directive. Here's an example from the HeroDetailComponent template:
-```
-<input [(ngModel)]="hero.name">
-```
-### Directives
-Angular templates are dynamic. When Angular renders them, it transforms the DOM according to the instructions given by directives.
-
-A directive is a class with directive metadata. In TypeScript, apply the @Directive decorator to attach metadata to the class.
-
-A component is a directive-with-a-template; a @Component decorator is actually a @Directive decorator extended with template-oriented features.
-
-While a component is technically a directive, components are so distinctive and central to Angular applications that this architectural overview separates components from directives.
-
-Two other kinds of directives exist: structural and attribute directives.
-
-***Structural directives*** alter layout by adding, removing, and replacing elements in DOM.
-```
-<li *ngFor="let hero of heroes"></li>
-<hero-detail *ngIf="selectedHero"></hero-detail>
+Clone this repo into new project folder (e.g., `my-proj`).
+```shell
+git clone https://github.com/angular/quickstart  my-proj
+cd my-proj
 ```
 
-- *ngFor tells Angular to stamp out one <li> per hero in the heroes list.
-- *ngIf includes the HeroDetail component only if a selected hero exists.
-
-Attribute directives alter the appearance or behavior of an existing element. In templates they look like regular HTML attributes, hence the name.
-
-The ngModel directive, which implements two-way data binding, is an example of an attribute directive. ngModel modifies the behavior of an existing element (typically an <input>) by setting its display value property and responding to change events.
-
+We have no intention of updating the source on `angular/quickstart`.
+Discard the `.git` folder..
+```shell
+rm -rf .git  # OS/X (bash)
+rd .git /S/Q # windows
 ```
-<input [(ngModel)]="hero.name">
-```
-### Services
-Service is a broad category encompassing any value, function, or feature that your application needs.
+### Delete _non-essential_ files (optional)
 
-Almost anything can be a service. A service is typically a class with a narrow, well-defined purpose. It should do something specific and do it well.
-### Dependency injection
-Angular can tell which services a component needs by looking at the types of its constructor parameters. For example, the constructor of your HeroListComponent needs a HeroService:
-```
-constructor(private service: HeroService) { }
-```
-You can register providers in modules or in components.
+You can quickly delete the _non-essential_ files that concern testing and QuickStart repository maintenance
+(***including all git-related artifacts*** such as the `.git` folder and `.gitignore`!)
+by entering the following commands while in the project folder:
 
-In general, add providers to the root module so that the same instance of a service is available everywhere.
-
-```
-providers: [
-  BackendService,
-  HeroService,
-  Logger
-],
+##### OS/X (bash)
+```shell
+xargs -a non-essential-files.txt rm -rf
+rm app/*.spec*.ts
+rm non-essential-files.txt
 ```
 
-Alternatively, register at a component level in the providers property of the @Component metadata:
-```
-@Component({
-  moduleId: module.id,
-  selector:    'hero-list',
-  templateUrl: 'hero-list.component.html',
-  providers:  [ HeroService ]
-})
+##### Windows
+```shell
+for /f %i in (non-essential-files.txt) do del %i /F /S /Q
+rd .git /s /q
+rd e2e /s /q
 ```
 
-Registering at a component level means you get a new instance of the service with each new instance of that component.
+### Create a new git repo
+You could [start writing code](#start-development) now and throw it all away when you're done.
+If you'd rather preserve your work under source control, consider taking the following steps.
 
-Points to remember about dependency injection:
+Initialize this project as a *local git repo* and make the first commit:
+```shell
+git init
+git add .
+git commit -m "Initial commit"
+```
 
-- Dependency injection is wired into the Angular framework and used everywhere.
+>Recover the deleted `.gitignore` from the QuickStart repository 
+if you lost it in the _Delete non-essential files_ step.
 
--  The injector is the main mechanism.
-   - An injector maintains a container of service instances that it created.
-   - An injector can create a new service instance from a provider.
-- A provider is a recipe for creating a service.
-- Register providers with injectors.
+Create a *remote repository* for this project on the service of your choice.
 
+Grab its address (e.g. *`https://github.com/<my-org>/my-proj.git`*) and push the *local repo* to the *remote*.
+```shell
+git remote add origin <repo-address>
+git push -u origin master
+```
+## Install npm packages
 
+> See npm and nvm version notes above
 
+Install the npm packages described in the `package.json` and verify that it works:
 
+```shell
+npm install
+npm start
+```
+
+>Doesn't work in _Bash for Windows_ which does not support servers as of January, 2017.
+
+The `npm start` command first compiles the application, 
+then simultaneously re-compiles and runs the `lite-server`.
+Both the compiler and the server watch for file changes.
+
+Shut it down manually with `Ctrl-C`.
+
+You're ready to write your application.
+
+### npm scripts
+
+We've captured many of the most useful commands in npm scripts defined in the `package.json`:
+
+* `npm start` - runs the compiler and a server at the same time, both in "watch mode".
+* `npm run tsc` - runs the TypeScript compiler once.
+* `npm run tsc:w` - runs the TypeScript compiler in watch mode; the process keeps running, awaiting changes to TypeScript files and re-compiling when it sees them.
+* `npm run lite` - runs the [lite-server](https://www.npmjs.com/package/lite-server), a light-weight, static file server, written and maintained by
+[John Papa](https://github.com/johnpapa) and
+[Christopher Martin](https://github.com/cgmartin)
+with excellent support for Angular apps that use routing.
+
+Here are the test related scripts:
+* `npm test` - compiles, runs and watches the karma unit tests
+* `npm run e2e` - run protractor e2e tests, written in JavaScript (*e2e-spec.js)
+
+## Testing
+
+The QuickStart documentation doesn't discuss testing.
+This repo adds both karma/jasmine unit test and protractor end-to-end testing support.
+
+These tools are configured for specific conventions described below.
+
+*It is unwise and rarely possible to run the application, the unit tests, and the e2e tests at the same time.
+We recommend that you shut down one before starting another.*
+
+### Unit Tests
+TypeScript unit-tests are usually in the `app` folder. Their filenames must end in `.spec`.
+
+Look for the example `app/app.component.spec.ts`.
+Add more `.spec.ts` files as you wish; we configured karma to find them.
+
+Run it with `npm test`
+
+That command first compiles the application, then simultaneously re-compiles and runs the karma test-runner.
+Both the compiler and the karma watch for (different) file changes.
+
+Shut it down manually with `Ctrl-C`.
+
+Test-runner output appears in the terminal window.
+We can update our app and our tests in real-time, keeping a weather eye on the console for broken tests.
+Karma is occasionally confused and it is often necessary to shut down its browser or even shut the command down (`Ctrl-C`) and
+restart it. No worries; it's pretty quick.
+
+### End-to-end (E2E) Tests
+
+E2E tests are in the `e2e` directory, side by side with the `app` folder.
+Their filenames must end in `.e2e-spec.ts`.
+
+Look for the example `e2e/app.e2e-spec.ts`.
+Add more `.e2e-spec.js` files as you wish (although one usually suffices for small projects);
+we configured protractor to find them.
+
+Thereafter, run them with `npm run e2e`.
+
+That command first compiles, then simultaneously starts the Http-Server at `localhost:8080`
+and launches protractor.  
+
+The pass/fail test results appear at the bottom of the terminal window.
+A custom reporter (see `protractor.config.js`) generates a  `./_test-output/protractor-results.txt` file
+which is easier to read; this file is excluded from source control.
+
+Shut it down manually with `Ctrl-C`.
+
+[travis-badge]: https://travis-ci.org/angular/quickstart.svg?branch=master
+[travis-badge-url]: https://travis-ci.org/angular/quickstart
