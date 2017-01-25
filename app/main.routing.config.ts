@@ -5,11 +5,9 @@ import { LoginComponent }  from './auth/components/login.component';
 import { PageNotFoundComponent }  from './common/components/page.not.found.component';
 
 const RoutingConfig: Routes = [
-
-  {
-    path: 'login',
-    component: LoginComponent
-  },
+  { path: 'home', pathMatch: 'full', component: AppComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '',   redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
-export {RoutingConfig};
+export { RoutingConfig };
