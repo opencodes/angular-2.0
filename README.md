@@ -1,4 +1,4 @@
-1.	Getting Started
+##	Getting Started
 -  Introduction 
 -  What is Angular 2? 
 -  Problems with the CLI?
@@ -8,7 +8,7 @@
 -  Understanding the Project Structure 
 -  Why TypeScript? What is TypeScript? 
 -  Understanding the TypeScript Code
-2.	Components, Templates & Databinding
+##	Components, Templates & Databinding
 -  Getting Started with Components 
 -  How an Angular 2 App gets started 
 -  Understanding AppModules 
@@ -33,7 +33,7 @@
 -  The Component Lifecycle 
 -  Component Lifecycle Usage Examples 
 -  Template Access with Local References, ViewChild and ContentChild
-3.	Directives
+##	Directives
 -  What are Directives? 
 -  Attribute Directives 
 -  READ FIRST: Angular 2 Router Version & Changes
@@ -47,12 +47,12 @@
 -  Angular 2's De-Sugaring Mechanism 
 -  Building a Custom Structural Directive 
 -  Using NgModules
-4.	Debugging an Angular 2 Application
+##	Debugging an Angular 2 Application
 -  Introduction 
 -  Chrome Debugger & Sourcemaps 
 -  If you don't find the TypeScript Sourcemaps
 -  Augury
-5.	Services & Dependency Injection
+##	Services & Dependency Injection
 -  What are Services? 
 -  Example: Logging Service 
 -  What is Dependency Injection? 
@@ -61,7 +61,7 @@
 -  Services & AppModules 
 -  Injecting Services into Services 
 -  Using Services for Cross-Component Interaction
-6.	Course Project – Routing
+##	Course Project – Routing
 -  Introduction to the Angular 2 Router 
 -  Setting up Routes 
 -  Loading Components 
@@ -83,7 +83,7 @@
 -  Guards: CanActivate 
 -  Guards: CanDeactivate 
 -  Location Strategies
-7.	Forms
+##	Forms
 -  Introduction to Forms in Angular 2 
 -  Template-Driven Approach Basics 
 -  Add FormsModule to your AppModule
@@ -113,7 +113,7 @@
 -  Custom Asynchronous Validators (Data-Driven) 
 -  Listening to Status & Value Changes 
 -  Resetting Forms
-8.	Pipes
+##	Pipes
 -  What are Pipes? 
 -  Using Pipes 
 -  Parametrizing Pipes 
@@ -126,7 +126,7 @@
 -  "Pure" Pipe Limitations 
 -  "Impure" Pipes 
 -  The Async Pipe
-9.	Http
+##	Http
 -  Required Adjustments in this Module 
 -  Http & Observables 
 -  Demo Data Source: Firebase Setup 
@@ -138,7 +138,7 @@
 -  Using the Async Pipe 
 -  Error Handling with Observables 
 -  Wrap Up
-10.	Authentication & Route Protection
+##	Authentication & Route Protection
 -  Required Adjustments in this Module 
 -  Introduction 
 -  Project Setup 
@@ -151,7 +151,7 @@
 -  Finishing Touches 
 -  How it looks using Angular 2.0 Final 
 -  Enhancing the App with Observables Magic!
-11.	Optimizing an Angular 2 Application (for bigger Projects)
+##	Optimizing an Angular 2 Application (for bigger Projects)
 -  Introduction 
 -  Using Feature Modules 
 -  Creating a Feature Module 
@@ -166,7 +166,7 @@
 -  Diving Deeper into Modules 
 -  Adding Ahead-of-time Compilation to your Workflow 
 -  Source Code
-12.	Angular 2 Animations
+##	Angular 2 Animations
 -  Introduction 
 -  Setting up the Starting Project 
 -  Animations Triggers and State 
@@ -178,13 +178,13 @@
 -  Using Keyframes for Animations 
 -  Grouping Transitions 
 -  Using Animation Callbacks
-13.	Deploying an Angular 2 Application
+##	Deploying an Angular 2 Application
 -  Intro & What to Deploy 
 -  Setting up an App for Deployment 
 -  Deploying to Github Pages Manually 
 -  Deploying to AWS S3 
 -  Deployment - Cheat Sheet
-14.	Custom Project & Workflow Setup
+##	Custom Project & Workflow Setup
 -  Introduction 
 -  Creating the Project 
 -  Setting up the Angular 2 App 
@@ -197,7 +197,7 @@
 -  Setting up a Webpack Production Configuration 
 -  Final Touches & Finishing the Production Workflow 
 -  AoT Bugfixing
-15.	A Basic Introduction to Unit Testing in Angular 2 Apps
+##	A Basic Introduction to Unit Testing in Angular 2 Apps
 -  Introduction 
 -  Why Unit Tests? 
 -  Analyzing the Testing Setup (as created by the CLI) 
@@ -207,7 +207,7 @@
 -  Simulating Async Tasks 
 -  Using "fakeAsync" and "tick" 
 -  Isolated vs Non-Isolated Tests
-16.	Bonus: TypeScript Introduction (for Angular 2 Usage)
+##	Bonus: TypeScript Introduction (for Angular 2 Usage)
 -  Introduction 
 -  Using Types 
 -  Classes 
