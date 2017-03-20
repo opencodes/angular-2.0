@@ -1,4 +1,4 @@
-#Angular 2 - Course Contentr bigger Projects)
+# Angular 2 - Course Contentr bigger Projects)
 1. Getting Started
 1.1. Introduction 
 1.2. What is Angular 2? 
