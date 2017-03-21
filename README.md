@@ -20,6 +20,7 @@
 -  MUST WATCH: How to proceed with this Course 
 -  View Encapsulation & Styling 
 -  Inserting Content with ng-content 
+https://scotch.io/tutorials/angular-2-transclusion-using-ng-content
 -  Databinding Overview 
 -  String Interpolation 
 -  Property Binding & Event Binding Overview
