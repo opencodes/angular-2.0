@@ -8,7 +8,7 @@
 -  Understanding the Project Structure 
 -  Why TypeScript? What is TypeScript? 
 -  Understanding the TypeScript Code
-##	Components, Templates & Databinding
+##	[Components, Templates & Databinding](ComponentsTemplatesAndDatabinding.md)
 -  Getting Started with Components 
 -  How an Angular 2 App gets started 
 -  Understanding AppModules 
