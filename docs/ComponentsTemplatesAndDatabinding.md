@@ -54,3 +54,4 @@ class AnotherComponent { /* ... */ }
 So, the answer to your question is pretty simple:
 
 The difference between @ViewChildren and @ContentChildren is that @ViewChildren look for elements in Shadow DOM while @ContentChildren look for them in Light DOM.
+https://youtu.be/4YmnbGoh49U
