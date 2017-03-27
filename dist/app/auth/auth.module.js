@@ -9,18 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var SignupComponent = (function () {
-    function SignupComponent() {
-        this.title = 'Signup Component';
+var common_1 = require('@angular/common');
+var router_1 = require('@angular/router');
+var login_component_1 = require('./components/login.component');
+var signup_component_1 = require('./components/signup.component');
+var auth_routing_1 = require('./auth.routing');
+var AuthModule = (function () {
+    function AuthModule() {
     }
-    SignupComponent = __decorate([
-        core_1.Component({
-            templateUrl: './app/auth/html/signup.html',
-            styleUrls: ['./app/auth/css/signup.css']
+    AuthModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                common_1.CommonModule, router_1.RouterModule.forRoot(auth_routing_1.AuthRouting)
+            ],
+            declarations: [login_component_1.LoginComponent, signup_component_1.SignupComponent]
         }), 
         __metadata('design:paramtypes', [])
-    ], SignupComponent);
-    return SignupComponent;
+    ], AuthModule);
+    return AuthModule;
 }());
-exports.SignupComponent = SignupComponent;
-//# sourceMappingURL=signup.component.js.map
+exports.AuthModule = AuthModule;
+//# sourceMappingURL=auth.module.js.map

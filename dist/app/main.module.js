@@ -16,17 +16,18 @@ var http_1 = require('@angular/http');
 var main_component_1 = require('./main.component');
 var main_routing_config_1 = require('./main.routing.config');
 //Modules
-var dashboard_component_1 = require('./dashboard/components/dashboard.component');
 var blog_module_1 = require('./blog/blog.module');
-var login_component_1 = require('./auth/components/login.component');
+var auth_module_1 = require('./auth/auth.module');
+//Components
+var dashboard_component_1 = require('./dashboard/components/dashboard.component');
 var page_not_found_component_1 = require('./common/components/page.not.found.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, blog_module_1.BlogModule, router_1.RouterModule.forRoot(main_routing_config_1.RoutingConfig)],
-            declarations: [main_component_1.AppComponent, dashboard_component_1.DashboardComponent, login_component_1.LoginComponent, page_not_found_component_1.PageNotFoundComponent],
+            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, router_1.RouterModule.forRoot(main_routing_config_1.RoutingConfig), auth_module_1.AuthModule, blog_module_1.BlogModule],
+            declarations: [main_component_1.AppComponent, dashboard_component_1.DashboardComponent, page_not_found_component_1.PageNotFoundComponent],
             bootstrap: [main_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

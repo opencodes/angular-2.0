@@ -7,14 +7,15 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { AppComponent }  from './main.component';
 import { RoutingConfig }  from './main.routing.config';
 //Modules
-import { DashboardComponent }  from './dashboard/components/dashboard.component';
 import { BlogModule }  from './blog/blog.module';
-import { LoginComponent }  from './auth/components/login.component';
+import { AuthModule }  from './auth/auth.module';
+//Components
+import { DashboardComponent }  from './dashboard/components/dashboard.component';
 import { PageNotFoundComponent }  from './common/components/page.not.found.component';
 
 @NgModule({
-  imports:      [ BrowserModule, HttpModule, BlogModule, RouterModule.forRoot(RoutingConfig) ],
-  declarations: [ AppComponent, DashboardComponent, LoginComponent ,PageNotFoundComponent],
+  imports:      [ BrowserModule, HttpModule,  RouterModule.forRoot(RoutingConfig), AuthModule, BlogModule  ],
+  declarations: [ AppComponent, DashboardComponent ,PageNotFoundComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule {
