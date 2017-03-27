@@ -11,8 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var router_1 = require('@angular/router');
+var http_1 = require('@angular/http');
+//Common Components
 var main_component_1 = require('./main.component');
 var main_routing_config_1 = require('./main.routing.config');
+//Modules
+var dashboard_component_1 = require('./dashboard/components/dashboard.component');
+var blog_module_1 = require('./blog/blog.module');
 var login_component_1 = require('./auth/components/login.component');
 var page_not_found_component_1 = require('./common/components/page.not.found.component');
 var AppModule = (function () {
@@ -20,8 +25,8 @@ var AppModule = (function () {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(main_routing_config_1.RoutingConfig)],
-            declarations: [main_component_1.AppComponent, login_component_1.LoginComponent, page_not_found_component_1.PageNotFoundComponent],
+            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, blog_module_1.BlogModule, router_1.RouterModule.forRoot(main_routing_config_1.RoutingConfig)],
+            declarations: [main_component_1.AppComponent, dashboard_component_1.DashboardComponent, login_component_1.LoginComponent, page_not_found_component_1.PageNotFoundComponent],
             bootstrap: [main_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

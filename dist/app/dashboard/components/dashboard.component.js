@@ -9,28 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var CommonService_1 = require('./common/services/CommonService');
-var AppComponent = (function () {
-    function AppComponent(_commonService) {
-        this._commonService = _commonService;
-        this.name = 'Angular';
+var DashboardComponent = (function () {
+    function DashboardComponent() {
+        this.title = "Dashboard";
     }
-    AppComponent.prototype.getNavs = function () {
-        var _this = this;
-        this._commonService.getNavigations().then(function (nav) { return _this.navs = nav; });
-    };
-    AppComponent.prototype.ngOnInit = function () {
-        this.getNavs();
-    };
-    AppComponent = __decorate([
+    DashboardComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: './app/main.html',
-            providers: [CommonService_1.CommonService]
+            templateUrl: "./app/dashboard/html/dashboard.html",
+            styleUrls: ["./app/dashboard/css/dashboard.css"],
         }), 
-        __metadata('design:paramtypes', [CommonService_1.CommonService])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [])
+    ], DashboardComponent);
+    return DashboardComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=main.component.js.map
+exports.DashboardComponent = DashboardComponent;
+//# sourceMappingURL=dashboard.component.js.map
