@@ -1,4 +1,5 @@
-import { Component , OnInit} from '@angular/core';
+import { Component,  OnChanges , OnInit} from '@angular/core';
+
 import {CommonService} from './common/services/CommonService';
 import {Nav} from './common/services/Nav';
 
@@ -11,6 +12,7 @@ import {Nav} from './common/services/Nav';
 export class AppComponent  { 
     name = 'Angular'; 
     navs : Nav[];
+    isLoggedIn : boolean = false;
     constructor(private _commonService : CommonService){
         
     }
@@ -22,5 +24,10 @@ export class AppComponent  {
     
     ngOnInit(){
         this.getNavs();
+    }
+
+    ngOnChange(val: boolean) {
+        console.log('isLoggedIn',val)
+        this.isLoggedIn = val;
     }
 }

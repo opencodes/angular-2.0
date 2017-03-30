@@ -1,5 +1,5 @@
 <div class="row justify-content-md-center">
-    <div class="col-md-4">
+    <div class="col-md-4" *ngIf="!isAuthenticated">
         <form>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
@@ -10,8 +10,11 @@
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
 
-            <button type="submit" class="btn btn-success">Create an account</button>
+            <button type="button" class="btn btn-success" (click)="login()">Create an account</button>
             <p> Don't have an account, <a routerLink="/signup"> Signup</a> </p>
         </form>
+    </div>
+    <div class="col-md-12" *ngIf="isAuthenticated">
+       Hi, {{user.id}}
     </div>
 </div>

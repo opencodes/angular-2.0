@@ -29,7 +29,6 @@ export class BlogComponent{
                        error =>  this.errorMessage = <any>error);
     }
     ngOnInit(){
-        console.log(this.route)
         this.getPosts();
     }
     

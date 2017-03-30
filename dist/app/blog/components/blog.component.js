@@ -25,7 +25,6 @@ var BlogComponent = (function () {
             .subscribe(function (posts) { return _this.posts = posts; }, function (error) { return _this.errorMessage = error; });
     };
     BlogComponent.prototype.ngOnInit = function () {
-        console.log(this.route);
         this.getPosts();
     };
     BlogComponent = __decorate([

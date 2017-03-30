@@ -14,6 +14,7 @@ var AppComponent = (function () {
     function AppComponent(_commonService) {
         this._commonService = _commonService;
         this.name = 'Angular';
+        this.isLoggedIn = false;
     }
     AppComponent.prototype.getNavs = function () {
         var _this = this;
@@ -21,6 +22,10 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.ngOnInit = function () {
         this.getNavs();
+    };
+    AppComponent.prototype.ngOnChange = function (val) {
+        console.log('isLoggedIn', val);
+        this.isLoggedIn = val;
     };
     AppComponent = __decorate([
         core_1.Component({
