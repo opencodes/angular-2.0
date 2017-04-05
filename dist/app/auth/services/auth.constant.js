@@ -1,6 +1,7 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 //all of the authentication events
-exports.AUTH_EVENTS = {
+exports.EVENTS = {
     loginSuccess: 'auth-login-success',
     loginFailed: 'auth-login-failed',
     logoutSuccess: 'auth-logout-success',
@@ -14,8 +15,8 @@ exports.USER_ROLES = {
     editor: 'editor',
     guest: 'guest'
 };
-exports.GITCONFIG = {
-    client_id: "a1ef6761735525a75c1f",
-    client_secret: "5365433f8e0f2aa37ee02750ad6418f34c9316e7"
+exports.URL = {
+    login: "/api/user/login",
+    signup: "/api/user/signup"
 };
 //# sourceMappingURL=auth.constant.js.map

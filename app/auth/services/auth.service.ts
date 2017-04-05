@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
-import { AUTH_EVENTS, USER_ROLES } from './auth.constant';
+import { EVENTS, USER_ROLES, URL } from './auth.constant';
 import { Auth } from './Auth';
 import { Session } from './session.service';
 
@@ -13,7 +13,6 @@ import { Session } from './session.service';
 @Injectable()
 export class AuthService {
     
-    private postUrl = "https://jsonplaceholder.typicode.com/posts/1";
     session: any;
 
     /**
@@ -36,7 +35,7 @@ export class AuthService {
             headers: headers
         });
 
-        return this.http.get(this.postUrl)
+        return this.http.get(URL.login)
             .map(function (res) {
                 let body = res.json();
                 self._sessionService.create(body.id, body.userId, 'admin');

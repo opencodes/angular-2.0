@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var Post = (function () {
     function Post(userId, id, title, body) {
         this.userId = userId;

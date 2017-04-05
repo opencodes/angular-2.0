@@ -8,17 +8,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 // Observable Version
-var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-var http_2 = require('@angular/http');
-var Observable_1 = require('rxjs/Observable');
-require('rxjs/add/operator/catch');
-require('rxjs/add/operator/map');
+var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
+var http_2 = require("@angular/http");
+var Observable_1 = require("rxjs/Observable");
+require("rxjs/add/operator/catch");
+require("rxjs/add/operator/map");
 var BlogPostService = (function () {
     function BlogPostService(http) {
         this.http = http;
-        this.postUrl = "https://jsonplaceholder.typicode.com/posts";
+        this.postUrl = "http://localhost:5000/api/post";
     }
     ;
     BlogPostService.prototype.getBlogPost = function () {
@@ -46,11 +47,11 @@ var BlogPostService = (function () {
         console.error(errMsg);
         return Observable_1.Observable.throw(errMsg);
     };
-    BlogPostService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
-    ], BlogPostService);
     return BlogPostService;
 }());
+BlogPostService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], BlogPostService);
 exports.BlogPostService = BlogPostService;
 //# sourceMappingURL=BlogPostService.js.map

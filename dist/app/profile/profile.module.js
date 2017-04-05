@@ -9,20 +9,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var router_1 = require("@angular/router");
-var blog_component_1 = require("./components/blog.component");
-var blog_routing_1 = require("./blog.routing");
-var BlogModule = (function () {
-    function BlogModule() {
+var profile_component_1 = require("./components/profile.component");
+var Routing = [
+    { path: 'profile', component: profile_component_1.ProfileComponent },
+];
+var ProfileModule = (function () {
+    function ProfileModule() {
     }
-    return BlogModule;
+    return ProfileModule;
 }());
-BlogModule = __decorate([
+ProfileModule = __decorate([
     core_1.NgModule({
         imports: [
-            common_1.CommonModule, router_1.RouterModule.forRoot(blog_routing_1.BlogRouting)
+            common_1.CommonModule, router_1.RouterModule.forRoot(Routing)
         ],
-        declarations: [blog_component_1.BlogComponent]
+        declarations: [profile_component_1.ProfileComponent]
     })
-], BlogModule);
-exports.BlogModule = BlogModule;
-//# sourceMappingURL=blog.module.js.map
+], ProfileModule);
+exports.ProfileModule = ProfileModule;
+//# sourceMappingURL=profile.module.js.map

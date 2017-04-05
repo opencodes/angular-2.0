@@ -14,7 +14,7 @@ import {Post} from './Post';
 
 @Injectable()
 export class BlogPostService{
-    private postUrl = "https://jsonplaceholder.typicode.com/posts";
+    private postUrl = "http://localhost:5000/api/post";
     constructor (private http: Http) {};
     
     getBlogPost(): Observable<Post[]> {

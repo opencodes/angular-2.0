@@ -14,9 +14,11 @@
             </li>
          
           </ul>
-          <div class="form-inline my-2 my-md-0" *ngIf="isLoggedIn==false">           
-            <a class="btn btn-success my-2 my-sm-0" routerLink="/login" type="submit">Sign In</a>
+          <div class="form-inline my-2 my-md-0" >           
+            <a class="btn btn-success my-2 my-sm-0" *ngIf="isLoggedIn==false" routerLink="/login" type="submit">Sign In</a>
+            <span *ngIf="isLoggedIn==true"> Hi <a routerLink="/profile">{{user.name}} / {{user.id}}</a> </span>
           </div>
+            
         </div>
       </div>
     </nav>

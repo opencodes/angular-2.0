@@ -6,18 +6,22 @@ import { HttpModule, JsonpModule } from '@angular/http';
 //Common Components
 import { AppComponent }  from './main.component';
 import { RoutingConfig }  from './main.routing.config';
+
 //Modules
 import { BlogModule }  from './blog/blog.module';
 import { AuthModule }  from './auth/auth.module';
+import { ProfileModule }  from './profile/profile.module';
+
 //Components
 import { DashboardComponent }  from './dashboard/components/dashboard.component';
 import { PageNotFoundComponent }  from './common/components/page.not.found.component';
 
 @NgModule({
-  imports:      [ BrowserModule, HttpModule,  RouterModule.forRoot(RoutingConfig), AuthModule, BlogModule  ],
+  imports:      [ BrowserModule, HttpModule,  RouterModule.forRoot(RoutingConfig), AuthModule, ProfileModule, BlogModule],
   declarations: [ AppComponent, DashboardComponent ,PageNotFoundComponent],
   bootstrap:    [ AppComponent ]
 })
+
 export class AppModule {
     
 }

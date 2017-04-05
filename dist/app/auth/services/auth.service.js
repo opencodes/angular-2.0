@@ -8,14 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-var http_2 = require('@angular/http');
-var Observable_1 = require('rxjs/Observable');
-require('rxjs/add/operator/catch');
-require('rxjs/add/operator/map');
-var auth_constant_1 = require('./auth.constant');
-var session_service_1 = require('./session.service');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
+var http_2 = require("@angular/http");
+var Observable_1 = require("rxjs/Observable");
+require("rxjs/add/operator/catch");
+require("rxjs/add/operator/map");
+var auth_constant_1 = require("./auth.constant");
+var session_service_1 = require("./session.service");
 var AuthService = (function () {
     /**
      * @param  {Http} private http
@@ -24,7 +25,6 @@ var AuthService = (function () {
     function AuthService(http, _sessionService) {
         this.http = http;
         this._sessionService = _sessionService;
-        this.postUrl = "https://jsonplaceholder.typicode.com/posts/1";
         this.session = _sessionService;
     }
     ;
@@ -39,7 +39,7 @@ var AuthService = (function () {
         var options = new http_2.RequestOptions({
             headers: headers
         });
-        return this.http.get(this.postUrl)
+        return this.http.get(auth_constant_1.URL.login)
             .map(function (res) {
             var body = res.json();
             self._sessionService.create(body.id, body.userId, 'admin');
@@ -86,11 +86,11 @@ var AuthService = (function () {
         }
         return Observable_1.Observable.throw(errMsg);
     };
-    AuthService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http, session_service_1.Session])
-    ], AuthService);
     return AuthService;
 }());
+AuthService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http, session_service_1.Session])
+], AuthService);
 exports.AuthService = AuthService;
 //# sourceMappingURL=auth.service.js.map

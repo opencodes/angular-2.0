@@ -8,9 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var BlogPostService_1 = require('../services/BlogPostService');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var BlogPostService_1 = require("../services/BlogPostService");
 var BlogComponent = (function () {
     function BlogComponent(_postService, route, router) {
         this._postService = _postService;
@@ -27,15 +28,17 @@ var BlogComponent = (function () {
     BlogComponent.prototype.ngOnInit = function () {
         this.getPosts();
     };
-    BlogComponent = __decorate([
-        core_1.Component({
-            templateUrl: "./app/blog/html/blog.html",
-            styleUrls: ["./app/blog/css/blog.css"],
-            providers: [BlogPostService_1.BlogPostService]
-        }), 
-        __metadata('design:paramtypes', [BlogPostService_1.BlogPostService, router_1.ActivatedRoute, router_1.Router])
-    ], BlogComponent);
     return BlogComponent;
 }());
+BlogComponent = __decorate([
+    core_1.Component({
+        templateUrl: "./app/blog/html/blog.html",
+        styleUrls: ["./app/blog/css/blog.css"],
+        providers: [BlogPostService_1.BlogPostService]
+    }),
+    __metadata("design:paramtypes", [BlogPostService_1.BlogPostService,
+        router_1.ActivatedRoute,
+        router_1.Router])
+], BlogComponent);
 exports.BlogComponent = BlogComponent;
 //# sourceMappingURL=blog.component.js.map

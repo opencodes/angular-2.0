@@ -8,7 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
 var Session = (function () {
     function Session() {
         this.id = null;
@@ -27,11 +28,11 @@ var Session = (function () {
         this.userId = null;
         this.userRole = null;
     };
-    Session = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
-    ], Session);
     return Session;
 }());
+Session = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [])
+], Session);
 exports.Session = Session;
 //# sourceMappingURL=session.service.js.map
