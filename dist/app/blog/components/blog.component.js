@@ -11,19 +11,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var CommonService_1 = require("../../common/services/CommonService");
 var BlogPostService_1 = require("../services/BlogPostService");
 var BlogComponent = (function () {
-    function BlogComponent(_postService, route, router) {
+    function BlogComponent(_postService, route, router, _commonService) {
         this._postService = _postService;
         this.route = route;
         this.router = router;
+        this._commonService = _commonService;
         this.title = "Blog";
     }
     ;
     BlogComponent.prototype.getPosts = function () {
         var _this = this;
+        var self = this;
+        self._commonService.setState('inProgress');
         this._postService.getBlogPost()
-            .subscribe(function (posts) { return _this.posts = posts; }, function (error) { return _this.errorMessage = error; });
+            .subscribe(function (posts) {
+            _this.posts = posts;
+            self._commonService.setState('Complete');
+        }, function (error) {
+            _this.errorMessage = error;
+            self._commonService.setState('Complete');
+        });
     };
     BlogComponent.prototype.ngOnInit = function () {
         this.getPosts();
@@ -38,7 +48,8 @@ BlogComponent = __decorate([
     }),
     __metadata("design:paramtypes", [BlogPostService_1.BlogPostService,
         router_1.ActivatedRoute,
-        router_1.Router])
+        router_1.Router,
+        CommonService_1.CommonService])
 ], BlogComponent);
 exports.BlogComponent = BlogComponent;
 //# sourceMappingURL=blog.component.js.map

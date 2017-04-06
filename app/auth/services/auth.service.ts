@@ -35,7 +35,7 @@ export class AuthService {
             headers: headers
         });
 
-        return this.http.get(URL.login)
+        return this.http.post(URL.login, {})
             .map(function (res) {
                 let body = res.json();
                 self._sessionService.create(body.id, body.userId, 'admin');

@@ -16,6 +16,6 @@ export const USER_ROLES =  {
 }
 
 export const URL = {
-  login : "/api/user/login",
-  signup : "/api/user/signup"
+  login : "http://localhost:5000/api/user/login",
+  signup : "http://localhost:5000/api/user/signup"
 }

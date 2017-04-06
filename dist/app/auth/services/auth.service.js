@@ -39,7 +39,7 @@ var AuthService = (function () {
         var options = new http_2.RequestOptions({
             headers: headers
         });
-        return this.http.get(auth_constant_1.URL.login)
+        return this.http.post(auth_constant_1.URL.login, {})
             .map(function (res) {
             var body = res.json();
             self._sessionService.create(body.id, body.userId, 'admin');

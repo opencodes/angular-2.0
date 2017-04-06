@@ -8,6 +8,7 @@ import {NAVS} from './NavMockData';
 @Injectable()
 export class CommonService {
     isLoggedIn: boolean = false;
+    isLoading: boolean = false;
 
     getNavigations() {
         return Promise.resolve(NAVS);
@@ -17,10 +18,23 @@ export class CommonService {
     private missionAnnouncedSource = new Subject < any > ();
     // Observable string streams
     missionAnnounced$ = this.missionAnnouncedSource.asObservable();
-    // Service message commands
+
+    private serviceState = new Subject < boolean>();
+
+    $serviceState = this.serviceState.asObservable();
+
     authenticate(user: any) {
         this.isLoggedIn = true;
         this.missionAnnouncedSource.next(user);
+    }
+    
+    setState(state:string){
+        if(state === "inProgress"){
+            this.isLoading = true;
+        }else{
+            this.isLoading = false;
+        }
+        this.serviceState.next(this.isLoading);        
     }
     
 }

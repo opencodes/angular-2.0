@@ -14,7 +14,7 @@ export class AppComponent {
     name = 'Angular';
     navs: Nav[];
     isLoggedIn: boolean = false;
-
+    isLoading: boolean = false;
     mission = '<no mission announced>';
     announced = false;
     subscription: Subscription;
@@ -31,7 +31,12 @@ export class AppComponent {
                 this.announced = true;
                 this.isLoggedIn = true;
                 
-            });
+        });
+        this.subscription = _commonService.$serviceState.subscribe(
+            state => {
+              this.isLoading = state;  
+        });
+        
     }
 
     getNavs(): void {

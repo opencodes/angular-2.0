@@ -12,18 +12,29 @@ var NavMockData_1 = require("./NavMockData");
 var CommonService = (function () {
     function CommonService() {
         this.isLoggedIn = false;
+        this.isLoading = false;
         // Observable string sources
         this.missionAnnouncedSource = new Subject_1.Subject();
         // Observable string streams
         this.missionAnnounced$ = this.missionAnnouncedSource.asObservable();
+        this.serviceState = new Subject_1.Subject();
+        this.$serviceState = this.serviceState.asObservable();
     }
     CommonService.prototype.getNavigations = function () {
         return Promise.resolve(NavMockData_1.NAVS);
     };
-    // Service message commands
     CommonService.prototype.authenticate = function (user) {
         this.isLoggedIn = true;
         this.missionAnnouncedSource.next(user);
+    };
+    CommonService.prototype.setState = function (state) {
+        if (state === "inProgress") {
+            this.isLoading = true;
+        }
+        else {
+            this.isLoading = false;
+        }
+        this.serviceState.next(this.isLoading);
     };
     return CommonService;
 }());

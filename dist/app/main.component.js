@@ -17,6 +17,7 @@ var AppComponent = (function () {
         this._commonService = _commonService;
         this.name = 'Angular';
         this.isLoggedIn = false;
+        this.isLoading = false;
         this.mission = '<no mission announced>';
         this.announced = false;
         this.isLoggedIn = _commonService.isLoggedIn;
@@ -27,6 +28,9 @@ var AppComponent = (function () {
             };
             _this.announced = true;
             _this.isLoggedIn = true;
+        });
+        this.subscription = _commonService.$serviceState.subscribe(function (state) {
+            _this.isLoading = state;
         });
     }
     AppComponent.prototype.getNavs = function () {

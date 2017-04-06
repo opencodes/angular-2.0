@@ -28,10 +28,12 @@ var LoginComponent = (function () {
     LoginComponent.prototype.login = function () {
         var _this = this;
         var self = this;
+        self._commonService.setState('inProgress');
         this._authService.login().subscribe(function (user) {
             self.user = user;
             self.isAuthenticated = self._authService.isAuthenticated();
             self._commonService.authenticate(user);
+            self._commonService.setState('Complete');
         }, function (error) { return _this.errorMessage = error; });
     };
     return LoginComponent;

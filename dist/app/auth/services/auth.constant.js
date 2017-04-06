@@ -16,7 +16,7 @@ exports.USER_ROLES = {
     guest: 'guest'
 };
 exports.URL = {
-    login: "/api/user/login",
-    signup: "/api/user/signup"
+    login: "http://localhost:5000/api/user/login",
+    signup: "http://localhost:5000/api/user/signup"
 };
 //# sourceMappingURL=auth.constant.js.map

@@ -30,12 +30,12 @@ export class LoginComponent {
 
     login(): void {
         let self = this;
+        self._commonService.setState('inProgress');
         this._authService.login().subscribe(function (user) {
                 self.user = < any > user
                 self.isAuthenticated = self._authService.isAuthenticated();
                 self._commonService.authenticate(user);
-            
-                
+                self._commonService.setState('Complete');
             },
             error => this.errorMessage = < any > error);
     }
