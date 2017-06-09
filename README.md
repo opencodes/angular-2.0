@@ -216,4 +216,5 @@ https://scotch.io/tutorials/angular-2-transclusion-using-ng-content
 -  Generics 
 -  Wrap up & Modules 
 -  Deep dive into TypeScript
-https://stackoverflow.com/questions/36475626/how-to-extend-inherit-angular2-component
+https://stackoverflow.com/questions/36475626/how-to-extend-inherit-angular2-component.
+https://plnkr.co/edit/DIMyUB6rCE5d78dPlPZB?p=preview
