@@ -28,7 +28,7 @@ export class RightComponent implements OnInit {
 
 
   ngOnInit() {
-
+     console.log('right----------');
   }
 
   ngOnDestroy() {
@@ -36,7 +36,9 @@ export class RightComponent implements OnInit {
   }
 
    updateData(value: boolean) {
-       this.router.navigate([ {outlets: { primary: 'playbook/id/2'}}]);
+     let id = Math.random();
+       console.log(id);
+       this.router.navigate([{outlets: { primary: 'playbook/id/'+id}}]);
 
   }
 

@@ -27,9 +27,9 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
-   
+   console.log('main----------');
     //this.router.navigate([{outlets: {rightrails: 'right'}}]);
-    this.router.navigate([ {outlets: { rightrails: 'right/id/1'}}]);
+    //this.router.navigate([ {outlets: { rightrails: 'right/id/1'}}]);
 
 
   }
