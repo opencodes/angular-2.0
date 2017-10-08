@@ -3,3 +3,12 @@
 </p>
 <button (click)="updateData(false)">Click t oupdate Data FALSE</button>
 
+
+ <a scrollTo href="#main-section">Scroll to main section</a>
+        <button scrollTo scrollTargetSelector="#test-section">Scroll to test section</button>
+        <button scrollTo scrollableElementSelector="#container" scrollYTarget="0">Go top</button>
+        <!-- Further content here -->
+        <div id="container">
+            <section id="main-section">Bla bla bla</section>
+            <section id="test-section">Bla bla bla</section>
+        <div>
